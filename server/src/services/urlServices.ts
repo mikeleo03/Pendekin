@@ -25,7 +25,7 @@ export const createUrl = async (payload: UrlPayloadType) => {
     }
 };
 
-//get
+// get
 export const getUrlByUrlCode = async (urlCode: string) => {
     try {
         let data = await Url.findOne({ urlCode });
