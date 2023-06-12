@@ -1,5 +1,4 @@
 import { generate as generateUrlcode } from "generate-password";
-
 import { UrlPayloadType } from "../types";
 import Url from "../models/UrlModel";
 

@@ -24,7 +24,7 @@ const Dashboard = () => {
                 urlPayload
             );
             console.log("data from back-end", data);
-            setShortUrl(`http://mike.leo/${data.urlCode}`);
+            setShortUrl(`http://localhost:5001/api/url/${data.urlCode}`);
         } catch (error) {
             console.log(error);
         }
