@@ -1,10 +1,9 @@
 export type UrlPayloadType = {
     originalLink: string;
     name?: string;
-    userId: string;
 };
   
-export type UrlType = {
+/* export type UrlType = {
     id?: string;
     urlCode: string;
     originalLink: string;
@@ -13,4 +12,4 @@ export type UrlType = {
     updatedAt: string;
     name?: string;
     userId: string;
-};
+}; */

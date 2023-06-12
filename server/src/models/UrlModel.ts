@@ -5,13 +5,11 @@ const UrlSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
-        index: true,
     },
     originalLink: {
         type: String,
         required: true,
         unique: true,
-        index: true,
     },
     name: {
         type: String,
@@ -29,10 +27,6 @@ const UrlSchema = new mongoose.Schema({
         type: String,
         default: Date.now(),
     },
-    userId: {
-        type: String,
-        index: true,
-    },
 });
 
 UrlSchema.set("toJSON", {
@@ -43,4 +37,4 @@ UrlSchema.set("toJSON", {
     },
 });
 
-export default mongoose.model("urls", UrlSchema);
+export default mongoose.model("Url", UrlSchema);
