@@ -24,3 +24,16 @@ export const createUrl = async (payload: UrlPayloadType) => {
         Error(error);
     }
 };
+
+//get
+export const getUrlByUrlCode = async (urlCode: string) => {
+    try {
+        let data = await Url.findOne({ urlCode });
+        if (!data) throw Error("Bad request");
+        data.visitCount++;
+        return await Url.findOneAndUpdate({ urlCode: urlCode }, data);
+    } catch (error) {
+        console.log(error);
+        Error(error);
+    }
+};

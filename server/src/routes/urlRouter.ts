@@ -1,7 +1,7 @@
 import express, { Router, NextFunction, Request, Response } from "express";
 
 import Url from "../models/UrlModel";
-import { createUrl } from "../services/urlServices";
+import { createUrl, getUrlByUrlCode } from "../services/urlServices";
 
 const router = Router();
 
@@ -23,6 +23,20 @@ router.post("/", async (req: Request, res: Response) => {
         }
     } else {
         res.status(400).json("Missing required paramaters");
+    }
+});
+
+router.get("/:urlCode", async (req: Request, res: Response) => {
+    const urlCode = req.params.urlCode;
+    if (!urlCode) {
+        res.status(400).send("Bad request");
+    }
+
+    try {
+        const data = await getUrlByUrlCode(urlCode);
+        res.status(301).redirect(data.originalLink);
+    } catch (error) {
+        res.status(500).json("Internal server error");
     }
 });
 
